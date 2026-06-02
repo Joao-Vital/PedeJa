@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo-header">
+            <img src="/images/logo-removebg-preview.png" alt="Logo da Empresa">
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="index.html">Sobre</a></li>
+                    <li class="dropdown" id="admin-dropdown" style="display: none;">
+                        <a href="#">Acesso administrador</a>
+                        <ul class="submenu">
+                            <li><a href="gerenciamentoProdutos.html">Gerenciar Produtos</a></li>
+                            <li><a href="pedidos adm.html">Gerenciar Pedidos</a></li>
+                            <li><a href="Cadastro-Oficina.html">Cadastrar Oficinas</a></li>
+                            <li><a href="gerenciar.html">Gerenciar Oficinas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <button id="cadastro-header" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Verificar se o usuário é administrador
+        (function checkAdminAccess() {
+            const tipoUsuario = localStorage.getItem('pedeja_tipo_usuario') || sessionStorage.getItem('pedeja_tipo_usuario');
+            const adminDropdown = document.getElementById('admin-dropdown');
+            
+            if (adminDropdown && tipoUsuario && (tipoUsuario === 'administrador' || tipoUsuario === 'admin')) {
+                adminDropdown.style.display = 'inline-block';
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Caminho relativo explícito -->
+    <link rel="stylesheet" href="./css/Navegacao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Cardápio</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo-header">
+            <!-- Removida barra inicial para não apontar à raiz -->
+            <a href="index.html"><img src="./images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Gerenciar</a>
+                        <ul class="submenu">
+                            <li><a href="gerenciamentoProdutos.html">Gerenciar Produtos</a></li>
+                            <li><a href="gerenciar.html">Cadastrar Oficinas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <!-- Removido href do button e adicionado o ícone -->
+                <button id="btn-logout" type="button">Logout <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="produtos" data-categoria-default="Hambúrgueres Artesanais">
+            <nav class="categorias">
+                <ul>
+                    <li>
+                        <a href="#" data-categoria="Hambúrgueres Artesanais">
+                            <i class="fa-solid fa-burger"></i>
+                            <p>Hambúrguer</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-categoria="Bebidas">
+                            <i class="fa-solid fa-martini-glass"></i>
+                            <p>Bebidas</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-categoria="Acompanhamentos">
+                            <i class="fa-solid fa-ice-cream"></i>
+                            <p>Acompanhamentos</p>
+                        </a>
+                    </li>
+                    <li><i class="bi bi-gear-fill"></i></li>
+                </ul>
+            </nav>
+            <div id="lista-produtos">
+                <!-- Produtos serão carregados dinamicamente via Cardapio.js -->
+            </div>
+        </section>
+
+        <aside id="carrinho">
+            <div id="content-cart">
+                <div id="icone-carrinho">
+                    <a href="Carrinho.html">
+                        <i class="bi bi-cart-fill"></i>
+                        <span id="txt-carrinho">Carrinho</span>
+                    </a>
+                </div>
+                <h2>Meus pedidos</h2>
+                <p id="mensagem-carrinho-vazio" hidden>Nenhum item no carrinho ainda.</p>
+                <ul class="lista-pedidos" id="lista-pedidos"></ul>
+                <hr>
+                <div class="total">
+                    <strong>Total</strong>
+                    <span id="total-carrinho">R$ 0,00</span>
+                </div>
+                <button class="fazer-pedido">Fazer pedido</button>
+            </div>
+        </aside>
+
+
+    </main>
+    <script src="./scripts/Cardapio.js"></script>
+</body>
+
+</html>

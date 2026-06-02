@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Inscrição em Oficina</title>
+
+    <link rel="stylesheet" href="css/gerenciamentoProdutos.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ============================================ -->
+
+    <section id="top-admin">
+        <h1>Inscrição na Oficina</h1>
+    </section>
+
+    <main>
+        <div class="container">
+
+            <form id="formInscricao">
+                <label>Nome Completo</label>
+                <input type="text" id="nome" />
+
+                <label>Email</label>
+                <input type="email" id="email" />
+
+                <label>Telefone</label>
+                <input type="text" id="telefone" />
+
+                <label>Oficina</label>
+                <input type="text" id="oficina" />
+
+                <button type="button" onclick="salvar()">Enviar Inscrição</button>
+            </form>
+        </div>
+
+        <!-- Modal de sucesso -->
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <p>Inscrição realizada com sucesso!</p>
+                <button onclick="closeModal()">Fechar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function salvar() {
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let telefone = document.getElementById("telefone").value;
+            let oficina = document.getElementById("oficina").value;
+
+            if (!nome || !email || !telefone || !oficina) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            let lista = JSON.parse(localStorage.getItem("inscricoes")) || [];
+
+            lista.push({
+                id: Date.now(),
+                nome,
+                email,
+                telefone,
+                oficina
+            });
+
+            localStorage.setItem("inscricoes", JSON.stringify(lista));
+
+            document.getElementById("nome").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("oficina").value = "";
+
+            document.getElementById("successModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("successModal").style.display = "none";
+        }
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li>
+                        <a href="index.html">Cardápio</a>
+                    </li>
+                    <li>
+                        <a href="Oficina.html">Oficinas</a>
+                    </li>
+                    <li>
+                        <li><a href="Sobre.html">Sobre</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+
+</body>
+</html>

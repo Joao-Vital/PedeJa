@@ -1,0 +1,242 @@
+@import url("../assets/reset/reset.css");
+/* header style */
+@import url("../assets/header/header.css");
+/* footer style */
+@import url("../assets/footer/footer.css");
+
+:root {
+  --accent-1: #ff6600;
+  --accent-2: #ff7a00;
+  --blue-dark: #072a46;
+  --blue-darker: #0b2230;
+  --muted-border: #e6e6e6;
+}
+
+#top-admin {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#top-admin h1 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f6f6;
+    margin: 0;
+    padding: 20px;
+    color: var(--blue-dark);
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-delete, .btn-edit, #btn-cadastrar {
+  background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(11, 34, 48, 0.16);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  gap: 12;
+}
+
+input, select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #f0f0f0;
+}
+
+.btn-edit { background: #007bff; }
+.btn-delete { background: #d9534f; }
+#btn-cadastrar { background: #f0ad4e;}
+
+.btn-edit:hover { background: #0069d9; }
+.btn-delete:hover { background: #c9302c; }
+#btn-cadastrar:hover { background: #ec971f; }
+
+/* Modal popup */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 300px;
+}
+
+/* Modal do formulário */
+.modal-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.form-container {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container h2 {
+    margin-bottom: 10px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.form-buttons button {
+    background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(11, 34, 48, 0.16);
+    transition: transform 140ms ease, box-shadow 140ms ease;
+    gap: 12;
+    background: #ec971f;
+}
+
+.form-buttons .cancel {
+    background: #666;
+}
+
+.modal button {
+    background: #007bff;
+    color: #fff;
+}
+
+#form-title {
+    font-size: 20px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+
+    /* garante que o container ocupe bem a tela */
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead {
+        display: none; 
+    }
+
+    #productList tr {
+        margin-bottom: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 8px;
+        background: #fff;
+    }
+
+    #productList td {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 0.9rem;
+    }
+
+    #productList td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        margin-right: 8px;
+        color: #555;
+    }
+
+    #productList td img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    #productList td[data-label="Ações"] {
+        justify-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}

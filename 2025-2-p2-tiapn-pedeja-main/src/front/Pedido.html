@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Pedido.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Conferir Itens</title>
+</head>
+<body>
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="../images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <!-- Removido href do button e adicionado o ícone -->
+                <button id="cadastro-header" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section id="title-carrinho">
+        <h1>Conferir Pedido</h1>
+
+        <div id="status">
+            <div class="txt-status">
+                <p>1</p>
+                <h3>Carrinho</h3>
+            </div>
+
+            <div class="txt-status active">
+                <p>2</p>
+                <h3>Conferir Itens</h3>
+            </div>
+
+            <div class="txt-status">
+                <p>3</p>
+                <h3>Status do Pedido</h3>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="esquerda">
+            <section id="detalhes-pedido">
+                <div id="total-itens">
+                    <div class="container-itens">
+                        <h3>Total de itens</h3>
+                        <p id="qntd-itens">0</p>
+                    </div>
+                </div>
+                <div id="preco">
+                    <div class="container-preco">
+                        <h3>Valor total:</h3>
+                        <p id="valor-total">R$00,00</p>
+                    </div>
+                </div>
+            </section>
+            <section id="formas-pagamento">
+                <div id="ttl-pagamento">
+                    <h1>Formas de Pagamento</h1>
+                </div>
+                <div id="cards-pagamento">
+                    <button class="metodo" type="button" data-payment="Cartão" aria-pressed="false">
+                        <i class="bi bi-credit-card-2-front-fill" aria-hidden="true"></i>
+                        <p>Cartão</p>
+                    </button>
+                    <button class="metodo" type="button" data-payment="Pix" aria-pressed="false">
+                        <i class="fa-brands fa-pix" aria-hidden="true"></i>
+                        <p>Pix</p>
+                    </button>  
+                    <button class="metodo" type="button" data-payment="Dinheiro" aria-pressed="false">
+                        <i class="bi bi-cash-stack" aria-hidden="true"></i>
+                        <p>Dinheiro</p>
+                    </button>
+                </div>
+            </section>
+        </section>
+        <aside id="conferir-itens">
+            <div id="itens-container">
+                <h1>Itens do Pedido</h1>
+                <div id="lista-itens" aria-live="polite"></div>
+            </div>
+            <div id="finalizar-pedido">
+                <button type="button" id="btn-finalizar-pedido">Finalizar Pedido</button>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li>
+                        <a href="index.html">Cardápio</a>
+                    </li>
+                    <li>
+                        <a href="Oficina.html">Oficinas</a>
+                    </li>
+                    <li>
+                        <a href="Sobre.html">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+
+    <script src="./scripts/Pedido.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Ofinicinas</title>
+
+    <link rel="stylesheet" href="/css/Cadastro-Oficina.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+       <div class="Menu">
+    <div class="logo-row">
+      <a href="/src/front/index.html" title="Ir para a página inicial"><img class="logo-top" src="/images/logo-removebg-preview.png" alt="PedeJá logo"></a>
+      <a href="/src/front/Navegacao.html" title="Ver menu / informações"><img class="logo-top" src="/images/Beef-Burger.png" alt="Sanduiche"></a>
+    </div>
+
+    <input type="text" id="search" placeholder="Pesquisar..."> 
+
+    <div class="Botões-Filtro-Pesquisa">
+      <a href="/src/front/Cadastro-Oficina.html">
+        <img src="/images/Gears.png">
+        Oficinas
+      </a>
+      <a href="/src/front/gerenciamentoProdutos.html">
+         <img src="/images/Product.png">
+        Produtos
+      </a>
+      <a href="/src/front/pedidos adm.html">
+        <img src="/images/Done.png">
+        Pedidos
+      </a>
+       <a href="/pagina_oficina/HTML/Controle.html">
+         <img src="/images/Adjust.png">
+        Controle
+      </a>
+       <a href="/src/front/CadastroPerfil.html">
+        <img src="/images/Vector.png">
+        Cadatros
+      </a>
+      <a></a><!-- Necessario para criar a linha escura em baixo do Concluídas -->
+    </div>
+
+    <div class="Conta-usario">
+      <div class="profile-card">
+        <div class="avatar"></div>
+        <div class="info">
+          <div class="profile-line" style="justify-content:space-between; align-items:center;">
+            <div style="font-weight:700">Nome Perfil</div>
+            <button class="profile-action" title="Ações do usuário"><i class="bi bi-three-dots-vertical"></i></button>
+          </div>
+          <div class="profile-line">
+            <div style="font-size:12px;color:var(--muted)">email@exemplo.com</div>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+  </div>
+
+  <div class="Main">
+    <div class="cadastro-header">
+      <h1>Oficinas cadastradas</h1>
+      <button class="btn-cadastrar" onclick="abrirModalCadastro()">+ Cadastrar Oficina</button>
+    </div>
+
+    <!-- Tela vazia -->
+    <div id="telaVazia" class="tela-vazia">
+      <div class="empty-state">
+        <i class="bi bi-gear-fill"></i>
+        <h2>Nenhuma Oficina Cadastrada</h2>
+        <p>Cadastre sua primeira oficina</p>
+        <button class="btn-primary" onclick="abrirModalCadastro()">Cadastrar</button>
+      </div>
+    </div>
+
+    <!-- Cards de oficinas -->
+    <div id="oficinasContainer" class="oficinas-grid" style="display: none;">
+      <!-- Cards serão preenchidos dinamicamente por JavaScript -->
+    </div>
+
+    <!-- Detalhes da oficina (inline, igual ao detalhes-Oficina.html, mas adaptado) -->
+    <div id="detalhesContainer" class="detalhes-container" style="display:none;">
+      <div class="detalhes-header">
+        <button class="voltar-btn" onclick="fecharDetalhesOficina()">← Voltar</button>
+      </div>
+      <div class="detalhes-principal">
+        <div class="detalhes-imagem">
+          <div class="imagem-grande"></div>
+        </div>
+        <div class="detalhes-info-main">
+          <h1 id="detalhes-titulo">Carregando...</h1>
+          <p id="detalhes-descricao" class="detalhes-descricao">Carregando descrição...</p>
+          <div class="detalhes-meta">
+            <div class="meta-item">
+              <i class="bi bi-clock"></i>
+              <span id="detalhes-duracao">00:00</span>
+            </div>
+            <button id="favoritar-btn" class="heart-btn" onclick="toggleFavorito()">
+              <i class="bi bi-heart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+        <!-- Seção de vídeos -->
+        <div class="videos-secao">
+        <h2>Vídeos complementares</h2>
+        <div id="videos-lista" class="videos-lista">
+          <div class="video-item">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <h3>Título do vídeo</h3>
+              <p>Descrição do vídeo</p>
+            </div>
+            <button class="video-menu"><i class="bi bi-three-dots-vertical"></i></button>
+          </div>
+          <div class="video-item">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <h3>Título do vídeo</h3>
+              <p>Descrição do vídeo</p>
+            </div>
+            <button class="video-menu"><i class="bi bi-three-dots-vertical"></i></button>
+          </div>
+          <div class="video-item">
+            <div class="video-thumb"></div>
+            <div class="video-info">
+              <h3>Título do vídeo</h3>
+              <p>Descrição do vídeo</p>
+            </div>
+            <button class="video-menu"><i class="bi bi-three-dots-vertical"></i></button>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal de Cadastro/Edição -->
+  <div id="modalCadastro" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitulo">Cadastrar Oficina</h2>
+      </div>
+      <form id="formularioCadastro" onsubmit="salvarOficina(event)">
+        <div class="form-group">
+          <label for="nomeCampo">Nome da Oficina</label>
+          <input type="text" id="nomeCampo" required placeholder="Ex: Oficina de Robótica">
+        </div>
+        <div class="form-group">
+          <label for="descricaoCampo">Descrição</label>
+          <textarea id="descricaoCampo" required placeholder="Descreva a oficina"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="statusCampo">Status</label>
+          <select id="statusCampo" required>
+            <option value="">Selecione um status</option>
+            <option value="Planejada">Planejada</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluída">Concluída</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="duracaoCampo">Duração (HH:MM)</label>
+          <input type="time" id="duracaoCampo" placeholder="Ex: 01:30">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-cancelar" onclick="fecharModalCadastro()">Cancelar</button>
+          <button type="submit" class="btn-salvar">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    
+    <script src="./js/Cadastro-Oficina.js"></script>
+
+<script>
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
+</script>
+
+    <script>
+    // Função para exibir detalhes da oficina
+    function mostrarDetalhesOficina(oficina) {
+      document.getElementById('detalhes-titulo').textContent = oficina.nome;
+      document.getElementById('detalhes-descricao').textContent = oficina.descricao;
+      document.getElementById('detalhes-duracao').textContent = oficina.duracao || '00:00';
+      // Favorito
+      const favBtn = document.getElementById('favoritar-btn');
+      const isFavorited = oficina.isFavorito === true || oficina.isFavorito === 1;
+      if (isFavorited) {
+        favBtn.classList.add('favorited');
+        favBtn.innerHTML = '<i class="bi bi-heart-fill"></i>';
+      } else {
+        favBtn.classList.remove('favorited');
+        favBtn.innerHTML = '<i class="bi bi-heart"></i>';
+      }
+      window.oficinaAtual = oficina;
+      // Seção de vídeos agora é estática
+      // Exibe o container de detalhes e oculta o grid de oficinas
+      document.getElementById('oficinasContainer').style.display = 'none';
+      document.getElementById('detalhesContainer').style.display = 'block';
+      // Oculta o botão de cadastrar enquanto estiver nos detalhes
+      const btnCadastrar = document.querySelector('.btn-cadastrar');
+      if (btnCadastrar) btnCadastrar.style.display = 'none';
+    }
+
+    // Função para favoritar/desfavoritar oficina
+    async function toggleFavorito() {
+      if (!window.oficinaAtual) return;
+      const oficina = window.oficinaAtual;
+      const novoFavorito = !(oficina.isFavorito === true || oficina.isFavorito === 1);
+      const favBtn = document.getElementById('favoritar-btn');
+      // Atualiza UI imediatamente
+      oficina.isFavorito = novoFavorito;
+      favBtn.classList.toggle('favorited');
+      favBtn.innerHTML = `<i class="bi ${novoFavorito ? 'bi-heart-fill' : 'bi-heart'}"></i>`;
+      // Envia para API (usar 0/1 e tratar erros)
+      try {
+        const payload = { isFavorito: novoFavorito ? 1 : 0 };
+        const res = await fetch(`http://localhost:3000/oficinas/${oficina.id}/favorito`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        let data = null;
+        try { data = await res.json(); } catch (e) { }
+        if (!res.ok) {
+          const msg = data && data.error ? data.error : data && data.message ? data.message : `Status ${res.status}`;
+          throw new Error(msg);
+        }
+      } catch (err) {
+        alert(`Erro ao atualizar favorito: ${err.message}`);
+        // Reverte em caso de erro
+        oficina.isFavorito = !novoFavorito;
+        favBtn.classList.toggle('favorited');
+        favBtn.innerHTML = `<i class="bi ${!novoFavorito ? 'bi-heart-fill' : 'bi-heart'}"></i>`;
+      }
+    }
+
+    // Função para fechar detalhes e voltar para grid
+    function fecharDetalhesOficina() {
+      document.getElementById('detalhesContainer').style.display = 'none';
+      document.getElementById('oficinasContainer').style.display = 'grid';
+      // Mostrar novamente o botão de cadastrar ao voltar
+      const btnCadastrar = document.querySelector('.btn-cadastrar');
+      if (btnCadastrar) btnCadastrar.style.display = 'inline-block';
+    }
+
+    // Torna os cards clicáveis ao renderizar
+    function tornarCardsClicaveis() {
+      const container = document.getElementById('oficinasContainer');
+      const cards = container.querySelectorAll('.oficina-card');
+      cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Evita conflito com botões internos do card
+          if (e.target.closest('.btn-menu-trigger')) return;
+          const id = card.getAttribute('data-id');
+          const oficina = window.listaOficinas?.find(o => o.id == id);
+          if (oficina) mostrarDetalhesOficina(oficina);
+        });
+      });
+    }
+
+    // Após renderizar os cards, chama tornarCardsClicaveis
+    document.addEventListener('DOMContentLoaded', function() {
+      // Aguarda renderização dos cards pelo JS principal
+      setTimeout(tornarCardsClicaveis, 500);
+    });
+    </script>
+    
+</body>
+</html>

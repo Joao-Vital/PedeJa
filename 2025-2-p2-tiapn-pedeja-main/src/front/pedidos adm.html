@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Painel de Pedidos - Administrador</title>
+
+    <link rel="stylesheet" href="css/pedidos adm.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="index.html">Sobre</a></li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <button id="cadastro-header" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+    <!-- ============================================ -->
+
+
+    <!-- TÍTULO SUPERIOR -->
+    <section id="top-admin">
+        <h1>Painel de Pedidos</h1>
+    </section>
+
+    <main>
+
+        <!-- LISTA DE PEDIDOS (lado esquerdo) -->
+        <section id="lista-pedidos">
+
+            <h2 class="titulo-card">Pedidos Recebidos</h2>
+
+            <h3>Pendentes</h3>
+            <div id="pendentes"></div>
+
+            <h3>Confirmados</h3>
+            <div id="confirmados"></div>
+
+            <h3>Prontos</h3>
+            <div id="prontos"></div>
+
+        </section>
+
+        <!-- STATUS GERAL (lado direito) -->
+        <aside id="status-geral">
+
+            <h2 class="titulo-card">Status Geral</h2>
+
+            <div class="status-linha">
+                <span>Pedidos Pendentes:</span>
+                <strong id="qtd-pendentes">0</strong>
+            </div>
+
+            <div class="status-linha">
+                <span>Pedidos Confirmados:</span>
+                <strong id="qtd-confirmados">0</strong>
+            </div>
+
+            <div class="status-linha">
+                <span>Pedidos Prontos:</span>
+                <strong id="qtd-prontos">0</strong>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li><a href="TelaInicial.html">Cardápio</a></li>
+                    <li><a href="Servicos.html">Oficinas</a></li>
+                    <li><a href="SobreNos.html">Sobre Nós</a></li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+    <!-- ============================================ -->
+
+    <script src="scripts/pedidos adm.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    text-align: center;
+    padding: 30px 50px;
+    border: 1px solid #ffcccc;
+    border-radius: 10px;
+    background: #ffeaea;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  h2 { color: #c00000; }
+  p { color: #444; }
+  a { color: #c00000; text-decoration: none; font-weight: bold; }
+</style>
+
+<script>
+  function mostrarMensagem() {
+    let erro = "<%= erro %>";
+    let msg = "Dados informados são inválidos!";
+
+    if (erro === "usuario") msg = "Usuário não encontrado!";
+    if (erro === "senha") msg = "Senha incorreta!";
+
+    document.getElementById("mensagem").innerText = msg;
+
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 3000);
+  }
+</script>
+</head>
+
+<body onload="mostrarMensagem()">
+  <div class="container">
+    <h2 id="mensagem">Carregando...</h2>
+    <p>Você será redirecionado para o login em alguns segundos.</p>
+    <p>Ou clique <a href="/login">aqui</a> para voltar agora.</p>
+  </div>
+</body>
+</html>

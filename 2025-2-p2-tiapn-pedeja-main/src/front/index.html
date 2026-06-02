@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/TelaInicial.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Tela-inicial</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="./images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                    <li class="dropdown" id="admin-dropdown" style="display: none;">
+                        <a href="#">Acesso administrador</a>
+                        <ul class="submenu">
+                            <li><a href="gerenciamentoProdutos.html">Gerenciar Produtos</a></li>
+                            <li><a href="pedidos adm.html">Gerenciar Pedidos</a></li>
+                            <li><a href="Cadastro-Oficina.html">Cadastrar Oficinas</a></li>
+                            <li><a href="gerenciar.html">Gerenciar Oficinas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <button id="cadastro-header" onclick="window.location.href='Cadastro.html'" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="descubra-sabores">
+            <div id="descubra">
+                <h1>Descubra Sabores<br>
+                    inesquecíveis<br>
+                    e aproveite momentos deliciosos!</h1>
+            </div>
+        </section>
+
+        <section id="mais-detalhes">
+
+            <div id="detalhes-oficinas">
+                <div class="detalhes">
+                    <div class="textos-detalhes">
+                        <h2>Oficinas</h2>
+                        <p>Somos uma associação dedicada à valorização da cultura e dos profissionais locais por meio de oficinas culturais e gastronômicas. Promovemos experiências práticas que estimulam a troca de saberes, o aprendizado e o fortalecimento da identidade cultural. Nossas atividades conectam pessoas, conhecimentos e tradições.</p>
+                    </div>
+                    <div class="img-detalhes">
+                        <img src="./images/barto-oficina.png" alt="imagem da oficina de pão">
+                    </div>
+                </div>
+            </div>
+
+            <div id="detalhes-produtos">
+                <div class="detalhes">
+                    <div class="img-detalhes">
+                        <img src="./images/barto-cardapio.png" alt="Cardápio Bartô">
+                    </div>
+                    <div class="textos-detalhes">
+                        <h2>Produtos</h2>
+                        <p>O Bartô Gastronomia é um espaço dedicado à boa comida, oferecendo hambúrgueres e refeições preparados com cuidado e identidade. Valorizamos ingredientes e sabores, unindo gastronomia e cultura em cada prato. </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="comecar">
+            <div id="content-comecar">
+                <div id="textos-comecar">
+                    <h2>Vamos Começar</h2>
+                    <p>Somos uma associação que valoriza a cultura, a gastronomia e os profissionais locais. Por meio de oficinas culturais e gastronômicas, promovemos aprendizado e troca de saberes, e no Bartô Gastronomia oferecemos hambúrgueres e refeições que traduzem identidade e sabor. </p>
+                </div>
+                <div id="btn-comecar">
+                    <button id="btn-cardapio" class="btn">Conhecer o cardápio</button>
+                    <button id="btn-oficinas" class="btn">Conhecer as oficinas</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                   <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Temos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+
+    <script>
+        // Verificar se o usuário é administrador para mostrar ou não o menu de adm
+        (function checkAdminAccess() {
+            const tipoUsuario = localStorage.getItem('pedeja_tipo_usuario') || sessionStorage.getItem('pedeja_tipo_usuario');
+            const adminDropdown = document.getElementById('admin-dropdown');
+            
+            if (adminDropdown && tipoUsuario && (tipoUsuario === 'administrador' || tipoUsuario === 'admin')) {
+                adminDropdown.style.display = 'inline-block';
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

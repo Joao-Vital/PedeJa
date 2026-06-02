@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5fff7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    text-align: center;
+    padding: 30px 50px;
+    border: 1px solid #ccffd3;
+    border-radius: 10px;
+    background: #eaffec;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 { color: #00c01a; }
+  p { color: #444444; }
+  a { color: #00c01a; text-decoration: none; font-weight: bold; }
+</style>
+
+<script>
+  function mostrarMensagem() {
+    document.getElementById("mensagem").innerText = "Cadastro feito com sucesso!";
+
+    setTimeout(() => {
+      window.location.href = "/tela-inicial";
+    }, 3000);
+  }
+</script>
+</head>
+
+<body onload="mostrarMensagem()">
+  <div class="container">
+    <h2 id="mensagem">Carregando...</h2>
+    <p>Você será redirecionado em alguns segundos.</p>
+    <p>Ou clique <a href="/tela-inicial">aqui</a> para ir agora.</p>
+  </div>
+</body>
+</html>

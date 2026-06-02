@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Carrinho.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Carrinho</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="../images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <!-- Removido href do button e adicionado o ícone -->
+                <button id="cadastro-header" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section id="title-carrinho">
+        <h1>Meu Carrinho de Compras</h1>
+
+        <div id="status">
+            <div class="txt-status active">
+                <p>1</p>
+                <h3>Carrinho</h3>
+            </div>
+
+            <div class="txt-status">
+                <p>2</p>
+                <h3>Conferir Itens</h3>
+            </div>
+
+            <div class="txt-status">
+                <p>3</p>
+                <h3>Status do Pedido</h3>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="itens-carrinho">
+            <div id="content-itens">
+                <p id="empty-cart-message" hidden>
+                    Seu carrinho está vazio. Acesse o cardápio para adicionar produtos.
+                </p>
+            </div>
+        </section>
+
+        <aside id="total-carrinho">
+            <div id="continuar">
+                <p>Continuar comprando</p>
+                <button id="btn-continuar" type="button">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+            </div>
+            <div id="total-pedido">
+                <h2>Total do Pedido</h2>
+                <div id="cupom">
+                    <div class="input-cupom-wrapper">
+                        <input type="text" id="input-cupom" placeholder="Insira seu cupom" aria-label="Código do cupom">
+                        <button id="btn-aplicar" type="button" aria-label="Aplicar cupom">Aplicar</button>
+                    </div>
+                </div>
+                <div class="precos">
+                    <p class="desc-precos">Subtotal:</p>
+                    <p class="valor" id="subtotal">R$ XX,XX</p>
+                </div>
+                <div class="precos">
+                    <p class="desc-precos">Desconto:</p>
+                    <p class="valor" id="desconto">R$ XX,XX</p>
+                </div>
+                <div class="precos">
+                    <p class="desc-precos">Taxas:</p>
+                    <p class="valor" id="taxas">R$ XX,XX</p>
+                </div>
+                <hr>
+                <div class="total-precos">
+                    <h3>Total:</h3>
+                    <p id="total">R$ XX,XX</p>
+                </div>
+                <button id="btn-finalizar" type="button">Finalizar Compra</button>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li>
+                        <a href="TelaInicial.html">Cardápio</a>
+                    </li>
+                    <li>
+                        <a href="Servicos.html">Oficinas</a>
+                    </li>
+                    <li>
+                        <a href="SobreNos.html">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+
+    <script src="./scripts/Carrinho.js"></script>
+</body>
+
+</html>

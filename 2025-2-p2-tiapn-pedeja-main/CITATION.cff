@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "Please cite this software using these metadata."
+title: "PedeJá"
+version: "1.0.0"
+date-released: "2025-12-17"
+license: CC-BY-4.0
+
+authors:
+  - family-names: "Benevides"
+    given-names: "Marco Túlio Alves"
+  - family-names: "Rocha"
+    given-names: "Samara Lana da"
+  - family-names: "Souza Rocha"
+    given-names: "Raissa Aparecida de"
+  - family-names: "Lino"
+    given-names: "Adriel Dias"
+  - family-names: "Coelho"
+    given-names: "Caio Antonio"
+  - family-names: "Fortes"
+    given-names: "João Pedro Vital"
+  - family-names: "Matos"
+    given-names: "Gabriel Madureira"
+
+keywords:
+  - sistemas web
+  - aplicação acadêmica
+  - desenvolvimento de software
+  - pedidos online
+  - projeto universitário
+
+repository-code: "https://github.com/ICEI-PUC-Minas-PCO-ADS-TI/2025-2-p2-tiapn-pedeja.git"

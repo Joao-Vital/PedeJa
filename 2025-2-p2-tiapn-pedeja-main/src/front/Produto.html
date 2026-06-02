@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Produto.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="./images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <!-- Removido href do button e adicionado o ícone -->
+                <button id="cadastro-header" type="button">Cadastrar <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <aside id="img-produto">
+            <img src="" alt="">
+        </aside>
+        <section id="detalhes-produto">
+            <div class="txt-produto">
+                <h1 id="nome-produto">Nome do Produto</h1>
+                <p id="preco-produto">R$ 99,99</p>
+                <p id="descricao-produto">Descrição...</p>  
+                <div class="contador">
+                    <button class="btn-contador menos">
+                        <i class="bi bi-dash"></i>
+                    </button>
+
+                    <span class="quantidade">0</span>
+
+                    <button class="btn-contador mais">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="btn-produto">
+                <button id="btn-adicionar" type="button" aria-label="Adicionar ao carrinho">
+                    <i class="bi bi-cart-plus"></i>
+                    <span>Adicionar</span>
+                </button>
+                <button id="btn-continuar" type="button" aria-label="Continuar compra">
+                    <i class="bi bi-arrow-right-circle"></i>
+                    <span>Continuar</span>
+                </button>
+            </div>
+            <p id="produto-feedback" class="produto-feedback" hidden></p>
+        </section>
+    </main>
+
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li>
+                        <a href="index.html">Cardápio</a>
+                    </li>
+                    <li>
+                        <a href="Oficina.html">Oficinas</a>
+                    </li>
+                    <li>
+                        <a href="Sobre.html">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Temos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+
+    <script src="./scripts/Produto.js"></script>
+</body>
+
+</html>

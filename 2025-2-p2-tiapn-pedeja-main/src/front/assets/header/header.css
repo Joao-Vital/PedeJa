@@ -1,0 +1,126 @@
+ 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 20px 80px;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 0 20px;
+    position: relative; 
+    color: #000; 
+    transition: color 0.3s ease;
+}
+
+header nav ul li::after {
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    bottom: -10px;
+    width: 100%; 
+    height: 2px; 
+    background-color: #FF924E;
+    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+header nav ul li:hover::after {
+    transform: scaleX(0.8);
+}
+
+header nav ul li:hover {
+    color: #FF924E;
+}
+
+#navigation-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+#logo-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100px;
+    height: 140px;
+}
+
+#logo-header img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+#logo-header img:hover {
+    transform: scale(1.05);
+}
+
+#cadastro-header {
+    color: #FF924E;
+    border: 1px solid #FF924E;
+    padding: 15px 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+#cadastro-header:hover {
+    background-color: #FF924E;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 146, 78, 0.3);
+}
+
+#cadastro-header:hover i {
+    color: white;
+}
+
+/* Dropdown Menu Styles */
+header nav ul li.dropdown {
+    position: relative;
+}
+
+header nav ul li.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 200px;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+header nav ul li.dropdown:hover .submenu {
+    display: block;
+}
+
+header nav ul li.dropdown .submenu li {
+    display: block;
+    padding: 10px 20px;
+}
+
+header nav ul li.dropdown .submenu li::after {
+    display: none;
+}
+
+header nav ul li.dropdown .submenu li a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+header nav ul li.dropdown .submenu li:hover a {
+    color: #FF924E;
+}

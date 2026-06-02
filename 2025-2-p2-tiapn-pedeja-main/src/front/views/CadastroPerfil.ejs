@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastro de Perfil - PedeJá</title>
+  <link rel="stylesheet" href="/css/CadastroPerfil.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <header>
+    <div id="logo-header">
+      <a href="/tela-inicial"><img src="/images/logo-removebg-preview.png" alt="PedeJá"></a>
+    </div>
+
+    <div id="navigation-menu-header">
+      <nav>
+        <ul>
+          <li><a href="/tela-inicial">Cardápio</a></li>
+          <li><a href="/servicos">Oficinas</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+          <li><a href="/perfil">Perfil</a></li>
+        </ul>
+      </nav>
+
+      <div id="user-actions-header">
+        <button id="cadastro-header" type="button" onclick="window.location.href='/logout'">
+          Logout <i class="bi bi-box-arrow-up-right"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <div class="cartao">
+
+      <section class="formulario">
+        <img class="logo-topo" src="/images/logo-removebg-preview.png" alt="PedeJá" />
+        <h1>Cadastro de Perfil</h1>
+
+        <% if (typeof sucesso !== 'undefined' && sucesso == 1) { %>
+            <p style="color: green; text-align:center;">Perfil atualizado com sucesso!</p>
+        <% } %>
+
+        <% if (typeof erro !== 'undefined' && erro == 1) { %>
+            <p style="color: red; text-align:center;">Erro ao atualizar perfil.</p>
+        <% } %>
+
+        <form id="formulario" class="formulario-campos" action="/perfil" method="post" autocomplete="off">
+
+          <div class="linha-dupla">
+            <label class="campo">
+              <div class="entrada">
+                <i class="bi bi-person-fill icone-entrada"></i>
+                <input type="text" name="primeiro_nome" placeholder="Primeiro Nome"
+                       value="<%= usuario.primeiro_nome || '' %>" required />
+              </div>
+            </label>
+
+            <label class="campo">
+              <div class="entrada">
+                <i class="bi bi-person icone-entrada"></i>
+                <input type="text" name="sobrenome" placeholder="Sobrenome"
+                       value="<%= usuario.sobrenome || '' %>" required />
+              </div>
+            </label>
+          </div>
+
+          <div class="linha-dupla">
+            <label class="campo">
+              <div class="entrada">
+                <i class="bi bi-credit-card-2-front icone-entrada"></i>
+                <input type="text" name="cpf" placeholder="CPF"
+                       value="<%= usuario.cpf || '' %>" required />
+              </div>
+            </label>
+
+            <label class="campo">
+              <div class="entrada">
+                <i class="bi bi-house icone-entrada"></i>
+                <input type="text" name="cep" placeholder="CEP"
+                       value="<%= usuario.cep || '' %>" required />
+              </div>
+            </label>
+          </div>
+
+          <div class="linha-tripla">
+            <label class="campo campo-largo">
+              <div class="entrada">
+                <i class="bi bi-geo-alt icone-entrada"></i>
+                <input type="text" name="endereco" placeholder="Endereço"
+                       value="<%= usuario.endereco || '' %>" required />
+              </div>
+            </label>
+
+            <label class="campo campo-pequeno">
+              <div class="entrada">
+                <input type="text" name="numero" placeholder="Número"
+                       value="<%= usuario.numero || '' %>" required />
+              </div>
+            </label>
+
+            <label class="campo campo-pequeno">
+              <div class="entrada">
+                <input type="text" name="complemento" placeholder="Complemento"
+                       value="<%= usuario.complemento || '' %>" />
+              </div>
+            </label>
+          </div>
+
+          <div class="acoes">
+            <button class="btn-salvar" type="submit">Salvar Perfil</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="lateral" aria-hidden="true">
+        <div class="conteudo-lateral">
+          <div class="avatar" role="img" aria-label="Avatar"></div>
+
+          <div class="lista-contatos">
+            <label class="linha-contato">
+              <i class="bi bi-telephone-fill"></i>
+              <input type="tel" name="telefone" placeholder="Telefone"
+                     form="formulario"
+                     value="<%= usuario.telefone || '' %>" />
+            </label>
+
+            <label class="linha-contato">
+              <i class="bi bi-instagram"></i>
+              <input type="text" name="instagram" placeholder="Instagram"
+                     form="formulario"
+                     value="<%= usuario.instagram || '' %>" />
+            </label>
+
+            <label class="linha-contato">
+              <i class="bi bi-facebook"></i>
+              <input type="text" name="facebook" placeholder="Facebook"
+                     form="formulario"
+                     value="<%= usuario.facebook || '' %>" />
+            </label>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+</body>
+</html>

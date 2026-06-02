@@ -1,0 +1,235 @@
+@import url("../assets/reset/reset.css");
+@import url("../assets/header/header.css");
+@import url("../assets/footer/footer.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
+}
+
+:root {
+  --accent-1: #ff6600;
+  --accent-2: #ff7a00;
+  --blue-dark: #072a46;
+  --blue-darker: #0b2230;
+  --muted-border: #e6e6e6;
+}
+
+/* ------------------------------
+   TOPO DO PAINEL
+--------------------------------*/
+#top-admin {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#top-admin h1 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------
+   CONTAINER PRINCIPAL
+--------------------------------*/
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px 100px;
+  gap: 40px;
+}
+
+/* ------------------------------
+   CARD LISTA DE PEDIDOS
+--------------------------------*/
+#lista-pedidos {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.titulo-card {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* ------------------------------
+   ITEM DO PEDIDO
+--------------------------------*/
+.pedido-item {
+  width: 100%;
+  padding: 25px;
+  border-radius: 25px;
+  border: 1px solid var(--muted-border);
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  transition: background 180ms ease;
+}
+
+.pedido-item:hover {
+  background: #f9f9f9;
+}
+
+.pedido-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pedido-descricao {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.pedido-horario {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* ------------------------------
+   BOTÕES DE STATUS
+--------------------------------*/
+.botoes-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-btn {
+  background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(11, 34, 48, 0.16);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.status-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(11, 34, 48, 0.18);
+}
+
+.status-btn:active {
+  transform: scale(0.97);
+}
+
+/* cor diferente por status */
+.btn-confirmar {
+  background: linear-gradient(90deg, #f4a100 0%, #ffbd31 100%);
+}
+
+.btn-pronto {
+  background: linear-gradient(90deg, #32b768 0%, #2ea35f 100%);
+}
+
+/* ------------------------------
+   CARD STATUS GERAL
+--------------------------------*/
+#status-geral {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.14);
+  height: fit-content;
+}
+
+.status-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.status-linha strong {
+  font-weight: 700;
+}
+
+/* Última linha sem borda */
+.status-linha:last-child {
+  border-bottom: none;
+}
+
+/* ------------------------------
+   RESPONSIVIDADE
+--------------------------------*/
+@media (max-width: 1080px) {
+  main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #lista-pedidos,
+  #status-geral {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .pedido-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botoes-status {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .status-btn {
+    padding: 10px 14px;
+  }
+}
+
+/* ANIMAÇÃO AO MUDAR STATUS */
+.animacao-mudar {
+    animation: fadeSlide 0.8s ease;
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(-6px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação especial ao confirmar */
+.animacao-confirmar {
+    animation: piscarAmarelo 1.2s ease;
+}
+
+@keyframes piscarAmarelo {
+    0% { background: #fff8d6; }
+    50% { background: #ffe9a3; }
+    100% { background: #ffffff; }
+}
+
+/* Animação especial ao marcar como pronto */
+.animacao-pronto {
+    animation: piscarVerde 1.2s ease;
+}
+
+@keyframes piscarVerde {
+    0% { background: #d6ffe3; }
+    50% { background: #b6ffcf; }
+    100% { background: #ffffff; }
+}
+

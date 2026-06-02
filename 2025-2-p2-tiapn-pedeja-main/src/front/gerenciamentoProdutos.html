@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gerênciamento de produtos - Administrador</title>
+
+    <link rel="stylesheet" href="css/gerenciamentoProdutos.css" />
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div id="logo-header">
+            <a href="index.html"><img src="images/logo-removebg-preview.png" alt="Logo da Empresa"></a>
+        </div>
+        <div id="navigation-menu-header">
+            <nav>
+                <ul>
+                    <li><a href="Navegacao.html">Cardápio</a></li>
+                    <li><a href="Oficina.html">Oficinas</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+            <div id="user-actions-header">
+                <button id="cadastro-header" type="button">Log <i class="bi bi-box-arrow-up-right"></i></button>
+            </div>
+        </div>
+    </header>
+    <!-- ============================================ -->
+
+    <!-- TÍTULO SUPERIOR -->
+    <section id="top-admin">
+        <h1>Gerenciamento de Produtos</h1>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="actions">
+                <input id="searchInput" type="text" placeholder="Buscar produto..." />
+
+                <select id="orderSelect">
+                    <option value="az">Ordenar A-Z</option>
+                    <option value="za">Ordenar Z-A</option>
+                    <option value="precoAsc">Preço crescente</option>
+                    <option value="precoDesc">Preço decrescente</option>
+                </select>
+
+                <button id="btn-cadastrar" onclick="redirectCadastrar()">Cadastrar Novo Produto</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="productList"></tbody>
+            </table>
+        </div>
+
+        <!-- Modal de sucesso -->
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <p id="successMessage">Produto salvo com sucesso</p>
+            </div>
+        </div>
+
+        <!-- Modal de exclusão -->
+        <div class="modal" id="deleteModal">
+            <div class="modal-content">
+                <p id="deleteMessage">Produto excluído com sucesso</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div id="content-footer">
+            <div id="logo-footer">
+                <img src="./images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div id="menu-footer">
+                <h4 class="title">Menu</h4>
+                <ul>
+                    <li>
+                        <a href="index.html">Cardápio</a>
+                    </li>
+                    <li>
+                        <a href="Oficina.html">Oficinas</a>
+                    </li>
+                    <li>
+                        <a href="Sobre.html">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="contato-footer">
+                <h4 class="title">Contato</h4>
+                <p id="email-footer">exemple@gmail.com</p>
+                <p id="numero-footer">31 9 0000-0000</p>
+                <p id="localizacao-footer">rua do n sei q la</p>
+            </div>
+            <div id="social-footer">
+                <h4 class="title">Social</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr id="footer-line">
+        <div id="rights-reserved">
+            <p>Copyright Dotcreativemarket</p>
+            <p>Termos de uso</p>
+            <p>Política de privacidade</p>
+        </div>
+    </footer>
+    <!-- ============================================ -->
+
+            <!-- ============ FORMULÁRIO DE CADASTRO E EDIÇÃO ============ -->
+    <div id="productFormModal" class="modal-form">
+        <div class="form-container">
+            <h2 id="form-title">Cadastrar Produto</h2>
+
+            <label>Foto</label>
+            <input type="file" id="form-foto" accept="image/*">
+
+            <label>Nome</label>
+            <input type="text" id="form-nome" placeholder="Nome do produto">
+
+            <label>Preço</label>
+            <input type="number" step="0.01" id="form-preco" placeholder="Preço">
+
+            <label>Categoria</label>
+            <select id="form-categoria">
+                <option value="Entrada">Entradas</option>
+                <option value="Refeicao">Refeição</option>
+                <option value="Sanduiche">Sanduiches</option>
+                <option value="Combo">Combo</option>
+                <option value="Bebida">Bebidas</option>
+            </select>
+
+            <label>Descrição</label>
+            <textarea id="form-descricao" rows="4" placeholder="Descrição do produto"></textarea>
+
+            <div class="form-buttons">
+                <button onclick="salvarProduto()">Salvar</button>
+                <button class="cancel" onclick="fecharForm()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/gerenciamentoProdutos.js"></script>
+
+</body>
+
+</html>
